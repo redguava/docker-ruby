@@ -7,7 +7,9 @@ RUN yum install -y readline-devel
 RUN yum install -y gcc gcc-c++ openssl-devel
 
 # Install cliniko dependencies
-RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel ImageMagick-devel ImageMagick-c++-devel
+RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel ImageMagick-devel ImageMagick-c++-devel
+RUN yum localinstall -y http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
+RUN yum install postgresql93-devel
 
 # Install ruby
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
