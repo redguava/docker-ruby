@@ -4,7 +4,7 @@ FROM redguava/centos
 RUN yum install -y readline-devel
 
 # Install ruby dependencies
-RUN yum install -y gcc gcc-c++ openssl-devel
+RUN yum install --enablerepo=centosplus -y gcc gcc-c++ openssl-devel
 
 # Install gem dependencies
 RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel
