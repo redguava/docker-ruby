@@ -4,14 +4,14 @@ FROM redguava/centos
 RUN yum install -y readline-devel
 
 # Install ruby dependencies
-RUN yum install -y gcc gcc-c++ openssl-devel
+RUN yum install --enablerepo=centosplus -y gcc gcc-c++ openssl-devel
 
 # Install gem dependencies
 RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel
 
 # Install postgres-client
 RUN yum localinstall -y http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
-RUN yum install postgresql93-devel
+RUN yum install -y postgresql93-devel
 
 # Install ruby
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
