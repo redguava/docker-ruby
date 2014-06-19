@@ -12,6 +12,7 @@ RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel
 # Install postgres-client
 RUN yum localinstall -y http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
 RUN yum install -y postgresql93-devel
+RUN echo -e 'export PATH=/usr/pgsql-9.3/bin:$PATH' >> /etc/profile.d/pg.sh
 
 # Install ruby
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
