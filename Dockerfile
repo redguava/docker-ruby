@@ -7,7 +7,7 @@ RUN yum install -y readline-devel
 RUN yum install --enablerepo=centosplus -y gcc gcc-c++ openssl-devel
 
 # Install gem dependencies
-RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel
+RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel make
 
 # Install postgres-client
 RUN yum localinstall -y http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-1.noarch.rpm
