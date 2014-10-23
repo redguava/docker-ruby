@@ -18,8 +18,8 @@ RUN echo -e 'export PATH=/usr/pgsql-9.3/bin:$PATH' >> /etc/profile.d/pg.sh
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 RUN mkdir -p ~/.rbenv/plugins && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 RUN echo -e 'export PATH=~/.rbenv/bin:$PATH\neval "$(rbenv init -)"' >> /etc/profile.d/rbenv.sh
-RUN bash -lc 'CONFIGURE_OPTS="--disable-install-doc" ~/.rbenv/plugins/ruby-build/bin/ruby-build 2.1.2 ~/.rbenv/versions/2.1.2'
-RUN bash -lc 'rbenv global 2.1.2'
+RUN bash -lc 'CONFIGURE_OPTS="--disable-install-doc" ~/.rbenv/plugins/ruby-build/bin/ruby-build 2.1.3 ~/.rbenv/versions/2.1.3'
+RUN bash -lc 'rbenv global 2.1.3'
 
 # Configure gem installation
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
