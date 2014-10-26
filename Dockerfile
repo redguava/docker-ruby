@@ -1,4 +1,4 @@
-FROM redguava/centos
+FROM redguava/centos:latest
 
 # Install readline
 RUN yum install -y readline-devel
