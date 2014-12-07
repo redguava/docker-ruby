@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+set -o errexit
+set -o nounset
+#set -o xtrace
+
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/centos/.local/bin:/home/centos/bin
+export PATH
+
+docker build -t redguava/ruby .
+bundle install
+bundle exec rake
