@@ -4,7 +4,7 @@ FROM redguava/centos:latest
 RUN yum install -y readline-devel
 
 # Install ruby dependencies
-RUN yum install --enablerepo=centosplus -y gcc gcc-c++ make openssl-devel
+RUN yum install --enablerepo=centosplus -y gcc gcc-c++ libffi-devel make openssl-devel
 
 # Install gem dependencies
 RUN yum install -y libxml2 libxml2-devel libxslt libxslt-devel
@@ -18,7 +18,7 @@ ENV PATH /usr/pgsql-9.3/bin:$PATH
 RUN git clone https://github.com/sstephenson/ruby-build.git /usr/local/src/ruby-build && \
     cd /usr/local/src/ruby-build && \
     ./install.sh && \
-    CONFIGURE_OPTS="--disable-install-doc" ruby-build 2.1.4 /usr/local && \
+    CONFIGURE_OPTS="--disable-install-doc" ruby-build 2.2.0 /usr/local && \
     rm -rf /usr/local/src/ruby-build
 
 # Configure gem installation
