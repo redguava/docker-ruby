@@ -18,7 +18,7 @@ ENV PATH /usr/pgsql-9.3/bin:$PATH
 RUN git clone https://github.com/sstephenson/ruby-build.git /usr/local/src/ruby-build && \
     cd /usr/local/src/ruby-build && \
     ./install.sh && \
-    CONFIGURE_OPTS="--disable-install-doc" ruby-build 2.2.0 /usr/local && \
+    CONFIGURE_OPTS="--disable-install-doc" ruby-build 2.1.5 /usr/local && \
     rm -rf /usr/local/src/ruby-build
 
 # Configure gem installation
