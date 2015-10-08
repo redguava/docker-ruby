@@ -1,7 +1,10 @@
-FROM redguava/centos:latest
+FROM centos:7
 
-# Install readline
-RUN yum install -y readline-devel
+# Skip installing gem documentation
+RUN echo -e 'install: --no-document\nupdate: --no-document' >> "$HOME/.gemrc"
+
+# Install dependencies
+RUN yum install -y git readline-devel
 
 # Install ruby dependencies
 RUN yum install --enablerepo=centosplus -y gcc gcc-c++ libffi-devel make openssl-devel
@@ -20,9 +23,6 @@ RUN git clone https://github.com/sstephenson/ruby-build.git /usr/local/src/ruby-
     ./install.sh && \
     CONFIGURE_OPTS="--disable-install-doc" ruby-build 2.1.6 /usr/local && \
     rm -rf /usr/local/src/ruby-build
-
-# Configure gem installation
-RUN echo 'gem: --no-document' >> ~/.gemrc
 
 # Install bundler
 RUN gem install bundler
